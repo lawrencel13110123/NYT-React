@@ -4,8 +4,14 @@ var React = require('react');
 // This is the saved component. It will be used to show a log of saved articles.
 var Saved = React.createClass({
 
+	clickToDelete: function (i) {
+		this.props.deleteArticles(this.props.savedArticles[i])
+	}, 
+
 	// Here we render the function
 	render: function(){
+		var that = this;
+		console.log(this.props.savedArticles)
 		return(
 
 			<div className="panel panel-success">
@@ -13,11 +19,12 @@ var Saved = React.createClass({
 					<h3 className="panel-title text-center"><strong>Saved Articles</strong></h3>
 				</div>
 				<div className="panel-body">
-
-					{/* Here we use a map function to loop through an array in JSX*/}
-					{console.log("this is props")}
-					{console.log(this.props)}
-					{this.props.savedArticles}
+					{that.props.savedArticles.map(function(obj, i) {
+						return (
+							// we .bind(that, i) to each clickToSave function so we know which button we are targeting
+							<div className="saved-items" key={i}><a href={obj.url} target="_blank">{obj.title}</a><br />{obj.date}<br /><button type="button" className="btn btn-warning" style={{'float': 'right', 'marginTop': '-39px'}} onClick={that.clickToDelete.bind(that, i)}>Delete</button></div>
+						)
+					})}
 				</div>
 			</div>
 

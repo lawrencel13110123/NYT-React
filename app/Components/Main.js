@@ -35,6 +35,19 @@ var Main = React.createClass({
 		})
 	},
 
+	deleteArticles: function(article){
+		console.log(article);
+		axios.delete('/api/saved/' + article._id)
+			.then(function(response){
+				this.setState({
+					savedArticles: response.data
+				});
+				return response;
+			}.bind(this));
+
+		this.getArticle();
+	},
+
 	getArticle: function(){
 		axios.get('/api/saved')
 			.then(function(response){
@@ -105,7 +118,7 @@ var Main = React.createClass({
 
 				<div className="row">
 				
-					<Saved savedArticles={this.state.savedArticles} />
+					<Saved savedArticles={this.state.savedArticles} deleteArticles={this.deleteArticles} />
 
 				</div>
 			</div>
