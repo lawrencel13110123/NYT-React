@@ -4,6 +4,7 @@ var React = require('react');
 // This is the saved component. It will be used to show a log of saved articles.
 var Saved = React.createClass({
 
+	// we pass in (this.props.savedArticles[i]) because the delete function is expecting a obj as argument 
 	clickToDelete: function (i) {
 		this.props.deleteArticles(this.props.savedArticles[i])
 	}, 
