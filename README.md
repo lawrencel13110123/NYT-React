@@ -38,6 +38,7 @@ The dependencies should now be in the local `node_modules` folder.
 ### Step 3: Launch app 
 Via terminal type in these bash command once you are in the NYT-Reat root directory 
 > webpack 
+>
 > node server.js 
 
 This step will automatically create the necessary MongoDB. 
