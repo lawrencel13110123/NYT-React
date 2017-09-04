@@ -31,8 +31,11 @@ The NYT-React project and its files should now be in your project folder.
 
 ### Step 2: Install Dependencies
 Install the following dependencies listed in the `package.json` file: 
+
 > npm install
+
 Once completed, you will see a `node_modules` folder in your local repo.
+
 The dependencies should now be in the local `node_modules` folder.
 
 ### Step 3: Launch app 
